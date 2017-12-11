@@ -47,4 +47,4 @@ Color contrast of **7:1** or **4.5:1 for large/bold text**.
 
 ## Contributing
 
-Contributions are welcomed, [file a pull request](https://github.com/bryanberger/sketch-wcag/issues) or [an issue](https://github.com/bryanberger/sketch-wcag/pulls).
+Contributions are welcomed, [file a pull request](https://github.com/bryanberger/sketch-wcag/pulls) or [an issue](https://github.com/bryanberger/sketch-wcag/issues).
