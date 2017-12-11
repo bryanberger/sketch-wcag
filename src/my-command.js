@@ -1,5 +1,5 @@
 const colorable = require('colorable')
-const PATH_TO_CSS = context.plugin.urlForResourceNamed('styles.css').path().replace(/ /g, '\\ ')
+const CSS = `*,*:after,*:before{margin:0;padding:0;border:none;outline:none;box-sizing:inherit}html{box-sizing:border-box;font-family:"Helvetica Neue", Helvetica, Arial, sans-serif}header{padding:1em;background-color:#fff}h4{padding:1em 0;text-align:center}a{color:#333;text-decoration:underline}a:hover{text-decoration:none}table{width:100%;border-spacing:0;table-layout:fixed}th{font-weight:500;padding:1em;width:25%}.badge{padding:0.5em;text-align:center}.strip{width:100%;padding:1.5em}.burger-input{top:0;left:0;opacity:0;width:100%;height:45px;cursor:pointer;position:absolute}.burger-input + label{width:30px;display:block;cursor:pointer;position:relative}.burger-input + label .burger,.burger-input + label:after,.burger-input + label:before{content:'';width:25px;height:4px;display:block;margin:3px auto;background-color:#333;-webkit-transition:all 200ms ease-in-out;transition:all 200ms ease-in-out}.burger-input:checked + label:before{-webkit-transform:translateY(2px) rotate(135deg);transform:translateY(2px) rotate(135deg)}.burger-input:checked + label:after{-webkit-transform:translateY(-12px) rotate(-135deg);transform:translateY(-12px) rotate(-135deg)}.burger-input:checked + label .burger{-webkit-transform:scale(0);transform:scale(0)}.burger-input:checked ~ nav{display:block}nav{display:none;background:#ececec;border:1px solid #ccc;padding:1em;margin:1em 0 0}ul{width:100%;list-style:none;text-align:left;font-weight:normal;font-size:14px;color:#333}ul li span{font-weight:bold;width:80px;display:inline-block;text-align:right}ul li.last{text-align:right}`
 let documentName = ''
 
 export default function(context) {
@@ -53,7 +53,7 @@ openFile = (file) => {
 createHTML = (result) => {
   let markup = table = ''
   const header = `
-    <style>${readFile(PATH_TO_CSS)}</style>
+    <style>${CSS}</style>
     <header>
       <input class="burger-input" type="checkbox" id="click" />
       <label for="click">
