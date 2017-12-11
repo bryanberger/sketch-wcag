@@ -9,6 +9,10 @@
     "manifest": "src/manifest.json",
     "main": "sketch-wcag.sketchplugin"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bryanberger/sketch-wcag.git"
+  },
   "scripts": {
     "build": "skpm-build",
     "watch": "skpm-build --watch",
