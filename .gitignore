@@ -1,6 +1,6 @@
 # build artifacts
-sketch-wcag.sketchplugin/Contents/Sketch
-sketch-wcag.sketchplugin/Contents/Resources
+# sketch-wcag.sketchplugin/Contents/Sketch
+# sketch-wcag.sketchplugin/Contents/Resources
 
 # npm
 node_modules

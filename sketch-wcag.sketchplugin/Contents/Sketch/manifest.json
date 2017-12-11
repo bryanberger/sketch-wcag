@@ -1,0 +1,26 @@
+{
+  "compatibleVersion": 3,
+  "bundleVersion": 1,
+  "description": "Test your color palette against the WCAG 2.0 guidelines.",
+  "author": "@bryanberger",
+  "identifier": "com.bryanberger.sketch-wcag",
+  "commands": [
+    {
+      "name": "🎨 WCAG Test",
+      "identifier": "com.bryanberger.sketch-wcag-test",
+      "description": "Test your color palette against the WCAG 2.0 guidelines.",
+      "shortcut": "cmd shift c",
+      "script": "my-command.js"
+    }
+  ],
+  "menu": {
+    "isRoot": true,
+    "items": [
+      "com.bryanberger.sketch-wcag-test"
+    ]
+  },
+  "version": "1.0.3",
+  "name": "Sketch WCAG",
+  "disableCocoaScriptPreprocessor": true,
+  "appcast": "https://raw.githubusercontent.com/bryanberger/sketch-wcag/master/.appcast.xml"
+}
