@@ -8,7 +8,7 @@
     "name": "Sketch WCAG",
     "description": "A Sketch plugin that lets you contrast test your entire color palette against the WCAG 2.0 guidelines all at once.",
     "manifest": "src/manifest.json",
-    "main": "sketch-wcag.sketchplugin",
+    "main": "sketch-wcag.sketchplugin"
   },
   "repository": {
     "type": "git",
