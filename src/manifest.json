@@ -3,15 +3,17 @@
   "bundleVersion": 1,
   "commands": [
     {
-      "name": "my-command",
-      "identifier": "my-command-identifier",
+      "name": "🎨 WCAG Test",
+      "identifier": "com.bryanberger.sketch-wcag",
+      "description" : "Test your color palette against the WCAG 2.0 guidelines.",
+      "shortcut" : "cmd shift c",
       "script": "./my-command.js"
     }
   ],
   "menu": {
-    "title": "palette-contrast-tester",
+    "isRoot": true,
     "items": [
-      "my-command-identifier"
+      "com.bryanberger.sketch-wcag"
     ]
   }
 }

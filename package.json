@@ -1,21 +1,24 @@
 {
-  "name": "palette-contrast-tester",
+  "name": "sketch-wcag",
   "version": "0.1.0",
   "engines": {
     "sketch": ">=3.0"
   },
   "skpm": {
-    "name": "palette-contrast-tester",
+    "name": "sketch-wcag",
     "manifest": "src/manifest.json",
-    "main": "plugin.sketchplugin"
+    "main": "sketch-wcag.sketchplugin"
   },
   "scripts": {
     "build": "skpm-build",
     "watch": "skpm-build --watch",
     "start": "skpm-build --watch --run",
-    "postinstall": "npm run build && skpm-link"
+    "postinstall": "npm run build && skpm-link && mkdir -p sketch-wcag.sketchplugin/Contents/Resources && cp src/styles.css sketch-wcag.sketchplugin/Contents/Resources"
   },
   "devDependencies": {
     "@skpm/builder": "^0.2.0"
+  },
+  "dependencies": {
+    "colorable": "^1.0.5"
   }
 }
