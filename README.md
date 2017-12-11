@@ -1,9 +1,9 @@
 <div align="center">
-  <img alt="sketch-wcag" src="/clip.gif" />
+  **Sketch WCAG**: A Sketch plugin that lets you contrast test your entire color palette against the WCAG 2.0 guidelines all at once.
 </div>
 
-<div align="center">
-  Sketch WCAG: A Sketch plugin that lets you contrast test your entire color palette against the WCAG 2.0 guidelines all at once.
+<div align="center">  
+  <img alt="sketch-wcag" src="/clip.gif" />
 </div>
 
 ## Installation
