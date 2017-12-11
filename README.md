@@ -3,7 +3,7 @@
 </div>
 
 <div align="center">
-  Sketch WCAG: A Sketch plugin that lets you contrast test your entire color palette against the WCAG guidelines all at once.
+  Sketch WCAG: A Sketch plugin that lets you contrast test your entire color palette against the WCAG 2.0 guidelines all at once.
 </div>
 
 ## Installation
