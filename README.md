@@ -18,7 +18,7 @@ You can install the plugin from [Sketch Runner](http://sketchrunner.com)
 
 ##### Manually
 
-Download [Sketch WCAG](https://github.com/bryanberger/sketch-wcag/archive/master.zip) and double-click the `.sketchplugin` to install.
+Download [Sketch WCAG](https://github.com/bryanberger/sketch-wcag/releases/latest) and double-click the `.sketchplugin` to install.
 
 ## Usage
 
