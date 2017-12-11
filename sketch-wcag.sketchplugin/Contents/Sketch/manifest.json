@@ -10,7 +10,8 @@
       "identifier": "com.bryanberger.sketch-wcag-test",
       "description": "Test your color palette against the WCAG 2.0 guidelines.",
       "shortcut": "cmd shift c",
-      "script": "my-command.js"
+      "script": "my-command.js",
+      "icon": "icon.png"
     }
   ],
   "menu": {

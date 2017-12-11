@@ -19,7 +19,7 @@
     "build-production": "NODE_ENV=production npm run build",
     "watch": "skpm-build --watch",
     "start": "skpm-build --watch --run",
-    "postinstall": "npm run build && skpm-link && mkdir -p sketch-wcag.sketchplugin/Contents/Resources && cp src/styles.css sketch-wcag.sketchplugin/Contents/Resources",
+    "postinstall": "npm run build && skpm-link && mkdir -p sketch-wcag.sketchplugin/Contents/Resources && cp src/styles.css src/icon.png sketch-wcag.sketchplugin/Contents/Resources",
     "precommit-msg": "echo 'Pre-commit production build...' && exit 0"
   },
   "pre-commit": ["precommit-msg", "build-production"],
