@@ -10,7 +10,7 @@
 
 ##### Recommended
 
-You can install the plugin from [Sketch Runner](http://sketchrunner.com) or [Sketchpacks](https://sketchpacks.com).
+You can install the plugin from [Sketch Runner](http://sketchrunner.com)
 
 <a href="http://bit.ly/SketchRunnerWebsite">
   <img width="160" height="41" src="http://bit.ly/RunnerBadgeBlue">
