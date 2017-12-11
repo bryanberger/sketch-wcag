@@ -1,5 +1,5 @@
 <div align="center">
-  <img alt="sketch-wcag" src="//" height="" />
+  <img alt="sketch-wcag" src="/example-output.png" />
 </div>
 
 <div align="center">
