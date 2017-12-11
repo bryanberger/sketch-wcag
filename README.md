@@ -10,15 +10,19 @@ A Sketch plugin that lets you contrast test your entire color palette against th
 
 ##### Recommended
 
-You can install the plugin from [Sketch Runner](http://sketchrunner.com)
+You can install the plugin from [Sketch Runner](http://sketchrunner.com) or [Sketchpacks](https://sketchpacks.com).
 
 <a href="http://bit.ly/SketchRunnerWebsite">
   <img width="160" height="41" src="http://bit.ly/RunnerBadgeBlue">
 </a>
+<a href="https://sketchpacks.com/bryanberger/sketch-wcag/install">
+  <img width="160" height="41" src="http://sketchpacks-com.s3.amazonaws.com/assets/badges/sketchpacks-badge-install.png">
+</a>
+
 
 ##### Manually
 
-Download [Sketch WCAG](https://github.com/bryanberger/sketch-wcag/releases/latest) and double-click the `.sketchplugin` to install.
+Download the `zip` [from here](https://github.com/bryanberger/sketch-wcag/releases/latest) and double-click the `.sketchplugin` to install.
 
 ## Usage
 
