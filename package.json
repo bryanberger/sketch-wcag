@@ -22,9 +22,13 @@
     "postinstall": "npm run build && skpm-link && mkdir -p sketch-wcag.sketchplugin/Contents/Resources && cp src/styles.css src/icon.png sketch-wcag.sketchplugin/Contents/Resources",
     "precommit-msg": "echo 'Pre-commit production build...' && exit 0"
   },
-  "pre-commit": ["precommit-msg", "build-production"],
+  "pre-commit": [
+    "precommit-msg",
+    "build-production"
+  ],
   "devDependencies": {
-    "@skpm/builder": "^0.2.0"
+    "@skpm/builder": "^0.2.0",
+    "pre-commit": "^1.2.2"
   },
   "dependencies": {
     "colorable": "^1.0.5"
