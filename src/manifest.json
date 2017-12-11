@@ -1,6 +1,8 @@
 {
   "compatibleVersion": 3,
   "bundleVersion": 1,
+  "description" : "Test your color palette against the WCAG 2.0 guidelines.",
+  "author": "@bryanberger",
   "commands": [
     {
       "name": "🎨 WCAG Test",
