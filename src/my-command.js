@@ -16,7 +16,7 @@ export default function(context) {
     let layerObj = layer.sketchObject
 
     if(layer.isShape) {
-      let fillColor = layerObj.style().fills().firstObject().color().NSColorWithColorSpace(nil).hexValue().toString()
+      var fillColor = layerObj.style().fills().firstObject().color().immutableModelObject().hexValue().toString()
       colors.push("#" + fillColor)
     }
   }
