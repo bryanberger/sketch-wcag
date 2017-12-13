@@ -2,9 +2,7 @@
 
 A Sketch plugin that lets you contrast test your entire color palette against the WCAG 2.0 guidelines all at once.
 
-<div align="center">  
-  ![Sketch WCAG by Bryan Berger](https://raw.githubusercontent.com/bryanberger/sketch-wcag/master/clip.gif)
-</div>
+![Sketch WCAG by Bryan Berger](https://raw.githubusercontent.com/bryanberger/sketch-wcag/master/clip.gif)
 
 ## Installation
 
