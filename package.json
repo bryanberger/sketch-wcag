@@ -24,7 +24,7 @@
   },
   "pre-commit": [],
   "devDependencies": {
-    "@skpm/builder": "^0.2.0",
+    "@skpm/builder": "^0.4.2",
     "pre-commit": "^1.2.2"
   },
   "dependencies": {
