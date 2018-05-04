@@ -24,8 +24,9 @@
   },
   "pre-commit": [],
   "devDependencies": {
-    "@skpm/builder": "^0.4.2",
-    "pre-commit": "^1.2.2"
+    "@skpm/builder": "^0.5.4",
+    "pre-commit": "^1.2.2",
+    "hoek": "^5.0.3"
   },
   "dependencies": {
     "colorable": "^1.0.5"
