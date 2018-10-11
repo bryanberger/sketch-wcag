@@ -1,43 +1,26 @@
+const Document = require('sketch/dom').Document
+const Style = require('sketch/dom').Style
 const colorable = require('colorable')
 const CSS = `*,*:after,*:before{margin:0;padding:0;border:none;outline:none;box-sizing:inherit}html{box-sizing:border-box;font-family:"Helvetica Neue", Helvetica, Arial, sans-serif}header{padding:1em;background-color:#fff}h4{padding:1em 0;text-align:center}a{color:#333;text-decoration:underline}a:hover{text-decoration:none}table{width:100%;border-spacing:0;table-layout:fixed}th{font-weight:500;padding:1em;width:25%}.badge{padding:0.5em;text-align:center}.strip{width:100%;padding:1.5em}.burger-input{top:0;left:0;opacity:0;width:100%;height:45px;cursor:pointer;position:absolute}.burger-input + label{width:30px;display:block;cursor:pointer;position:relative}.burger-input + label .burger,.burger-input + label:after,.burger-input + label:before{content:'';width:25px;height:4px;display:block;margin:3px auto;background-color:#333;-webkit-transition:all 200ms ease-in-out;transition:all 200ms ease-in-out}.burger-input:checked + label:before{-webkit-transform:translateY(2px) rotate(135deg);transform:translateY(2px) rotate(135deg)}.burger-input:checked + label:after{-webkit-transform:translateY(-12px) rotate(-135deg);transform:translateY(-12px) rotate(-135deg)}.burger-input:checked + label .burger{-webkit-transform:scale(0);transform:scale(0)}.burger-input:checked ~ nav{display:block}nav{display:none;background:#ececec;border:1px solid #ccc;padding:1em;margin:1em 0 0}ul{width:100%;list-style:none;text-align:left;font-weight:normal;font-size:14px;color:#333}ul li span{font-weight:bold;width:80px;display:inline-block;text-align:right}ul li.last{text-align:right}`
 let documentName = ''
+let colors = []
 
-export default function(context) {
-  let colors = []
+function iterator(layer) {
+  if(layer.type == 'ShapePath') {
+    var fills = layer.style.fills
 
-  const sketch    = context.api()
-  const documentObj = context.document
-  const document  = sketch.selectedDocument
-  const selection = document.selectedLayers
+    if(fills.length > 0) {
+      var topFill = fills[fills.length-1]
 
-  documentName = documentObj.displayName()
-
-  iterator = (layer) => {
-    let layerObj = layer.sketchObject
-
-    if(layer.isShape) {
-      var fillColor = layerObj.style().fills().firstObject().color().immutableModelObject().hexValue().toString()
-      colors.push("#" + fillColor)
-    }
-  }
-
-  if(selection) {
-    selection.iterate(layer => iterator(layer))
-
-    if(colors.length > 1) {
-      const results = colorable(colors, {compact: false, threshold: 0})
-      const html = createHTML(results)
-      const file = createFile(html)
-
-      openFile(file)
-      context.document.showMessage('HTML file created')
-    } else {
-      context.document.showMessage('Please choose more than 1 color to test')
+      if(topFill.fill == 'Color') {
+        // `colorable` currently only supports RGB
+        colors.push(topFill.color.slice(0, -2))
+      }
     }
   }
 }
 
-createFile = (htmlStr) => {
+function createFile(htmlStr) {
   let htmlContent = NSString.stringWithString_(htmlStr)
   let filepath = NSTemporaryDirectory() + documentName + '.html'
   htmlContent.dataUsingEncoding_(NSUTF8StringEncoding).writeToFile_atomically_(filepath, true)
@@ -46,12 +29,13 @@ createFile = (htmlStr) => {
   return file
 }
 
-openFile = (file) => {
+function openFile(file) {
   NSWorkspace.sharedWorkspace().openFile(file.path())
 }
 
-createHTML = (result) => {
-  let markup = table = ''
+function createHTML(result) {
+  let markup = ''
+  let table = ''
   const header = `
     <style>${CSS}</style>
     <header>
@@ -73,7 +57,10 @@ createHTML = (result) => {
 
   for (let i = 0; i < result.length; i++) {
     let textColor = isDark(result[i].values.rgb) ? '#fff' : '#000'
-    let aaStr = aaLargeStr = aaaStr = aaaLargeStr = ''
+    let aaStr = ''
+    let aaLargeStr = ''
+    let aaaStr = ''
+    let aaaLargeStr = ''
 
     for (let x = 0; x < result[i].combinations.length; x++) {
       let dict = result[i].combinations[x].accessibility
@@ -149,7 +136,7 @@ createHTML = (result) => {
   return header + markup
 }
 
-createColorBadge = (resultObj, x) => {
+function createColorBadge(resultObj, x){
   return `
     <div class="badge" style="color: ${resultObj.hex}; background-color: ${resultObj.combinations[x].hex}">
       ${resultObj.combinations[x].hex}
@@ -157,7 +144,7 @@ createColorBadge = (resultObj, x) => {
   `
 }
 
-createEmptyBadge = () => {
+function createEmptyBadge() {
   return `
     <div class="badge">
       &nbsp;
@@ -165,12 +152,35 @@ createEmptyBadge = () => {
   `
 }
 
-readFile = (path) => {
+function readFile(path){
   return NSString.stringWithContentsOfFile_encoding_error(path, NSUTF8StringEncoding, null)
 }
 
-isDark = (rgb) => {
+function isDark(rgb) {
 	// YIQ equation from http://24ways.org/2010/calculating-color-contrast
 	var yiq = (rgb[0] * 299 + rgb[1] * 587 + rgb[2] * 114) / 1000
 	return yiq < 128
+}
+
+export default function(context) {
+  const documentObj = context.document
+  const doc = Document.getSelectedDocument()
+  const selection = doc.selectedLayers
+
+  documentName = documentObj.displayName()
+
+  if(selection.length > 0) {
+    selection.forEach(layer => { iterator(layer) })
+
+    if(colors.length > 1) {
+      const results = colorable(colors, {compact: false, threshold: 0})
+      const html = createHTML(results)
+      const file = createFile(html)
+
+      openFile(file)
+      context.document.showMessage('HTML file created')
+    } else {
+      context.document.showMessage('Please choose at least 2 shapes with different solid colors to test')
+    }
+  }
 }
