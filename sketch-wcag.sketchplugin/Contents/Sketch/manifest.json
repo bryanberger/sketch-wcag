@@ -20,7 +20,7 @@
       "com.bryanberger.sketch-wcag-test"
     ]
   },
-  "version": "1.0.6",
+  "version": "1.1.0",
   "name": "Sketch WCAG",
   "disableCocoaScriptPreprocessor": true,
   "appcast": "https://raw.githubusercontent.com/bryanberger/sketch-wcag/master/.appcast.xml"
